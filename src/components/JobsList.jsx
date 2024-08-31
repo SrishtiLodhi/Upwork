@@ -1,5 +1,5 @@
 import React from "react";
-import JobCard from "./job-card";
+import JobCard from "./JobCard";
 
 function JobsList() {
   return (

@@ -1,8 +1,9 @@
-import JobsList from "./components/jobs-list";
-import Navbar from "./components/navbar";
-import RampupCard from "./components/rampup-card";
-import OptionsCard from "./components/options-card";
-import Footer from "./components/footer";
+import JobsList from "./components/JobsList";
+import Navbar from "./components/Navbar";
+import RampupCard from "./components/RampupCard";
+import OptionsCard from "./components/OptionsCard";
+import Footer from "./components/Footer";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         </div>
         <OptionsCard />
       </div>
+      {/* <Login/> */}
       <Footer />
     </div>
   );
