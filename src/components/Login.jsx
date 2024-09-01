@@ -3,11 +3,11 @@ import google from "../assets/google.svg";
 import apple from "../assets/apple.png";
 import passwordshow from "../assets/eye.png";
 
-function Login() {
+function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordType, setPasswordType] = useState("password");
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const handlePasswordShow = (e) => {
     e.preventDefault();
@@ -24,17 +24,20 @@ function Login() {
     e.preventDefault();
     setLoading(true);
     try {
-
+      onLogin();
     } catch (e) {
       setLoading(false);
     }
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit} className="flex flex-col font-sans items-center border border-gray-400 px-20 shadow-md rounded-lg w-[35%] mx-auto p-[3%]">
+    <div className="flex justify-center items-center w-full h-screen">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col font-sans items-center border border-gray-400 px-20 shadow-md rounded-lg w-full max-w-md p-6"
+      >
         <h3 className="text-3xl font-medium font-sans mb-4">Log in to Upwork</h3>
-        <div className="relative flex flex-col w-full">
+        <div className="relative flex flex-col w-full mb-4">
           <input
             type="email"
             id="username"
@@ -44,26 +47,11 @@ function Login() {
             className="p-2 rounded-lg border border-gray-300 text-sm outline-none"
           />
         </div>
-        {/* <div className="relative flex flex-col p-4 w-full">
-          <label htmlFor="password" className="text-sm mb-1 tracking-wider">Password</label>
-          <input
-            type={passwordType}
-            id="password"
-            onChange={handleChangeInput}
-            value={password}
-            placeholder="Type Here"
-            className="p-2 rounded-lg border border-gray-300 text-sm outline-none"
-          />
-          <img
-            src={passwordshow}
-            alt="Show password"
-            className="absolute top-[42px] left-[330px] cursor-pointer w-6 h-6 md:left-[240px]"
-            onClick={handlePasswordShow}
-          />
-        </div> */}
+        {/* Password input code commented out */}
         <button
           type="submit"
-          className={`w-full rounded-xl text-white bg-green-700 mt-5 p-2 text-lg ${
+          onClick={handleSubmit}
+          className={`w-full rounded-xl text-white bg-green-700 p-2 text-lg ${
             loading ? "bg-gray-500 cursor-not-allowed" : "cursor-pointer"
           } `}
           disabled={loading}
@@ -84,9 +72,11 @@ function Login() {
           Continue with Apple
         </button>
         <div className="text-gray-400 my-5">Don’t have a Freelance account?</div>
-        <a href="/signup" className="text-green-700">Sign Up now</a>
+        <a href="/signup" className="text-green-700">
+          Sign Up now
+        </a>
       </form>
-          </>
+    </div>
   );
 }
 
