@@ -1,6 +1,5 @@
 {
   "name": "upwork-clone",
-  "homepage": "https://vcashwin.github.io/upwork-clone",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
