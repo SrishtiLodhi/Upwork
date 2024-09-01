@@ -1,23 +1,14 @@
 import React, { useState } from "react";
 import google from "../assets/google.svg";
 import apple from "../assets/apple.png";
-import passwordshow from "../assets/eye.png";
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordType, setPasswordType] = useState("password");
   const [loading, setLoading] = useState(false);
-
-  const handlePasswordShow = (e) => {
-    e.preventDefault();
-    setPasswordType(passwordType === "password" ? "text" : "password");
-  };
 
   const handleChangeInput = (e) => {
     const { value, id } = e.target;
     if (id === "username") setEmail(value);
-    if (id === "password") setPassword(value);
   };
 
   const handleSubmit = async (e) => {
